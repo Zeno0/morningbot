@@ -1,0 +1,29 @@
+name: Send Good Morning Quote
+
+on:
+  schedule:
+    - cron: '00 0 * * *'  # runs every day at 0:00 AM UTC (~5:30 AM IST)
+  workflow_dispatch:     # allows manual run too
+
+jobs:
+  send-quote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run bot
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID_MANU: ${{ secrets.TELEGRAM_CHAT_ID_MANU }}
+          TELEGRAM_CHAT_ID_YASH: ${{ secrets.TELEGRAM_CHAT_ID_YASH }}
+        run: python send_morning.py
