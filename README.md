@@ -35,7 +35,10 @@ This project uses **Python** + **GitHub Actions** + **Telegram Bot API**
 ```bash
    https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates
 ```
-
+- Use this URL to send custom message to specific chat_id
+```bash
+   https://api.telegram.org/bot<YOUR_TOKEN>/sendMessage?chat_id=<chat_id>&text=Hello user
+```
 
 
 #### For friends:
