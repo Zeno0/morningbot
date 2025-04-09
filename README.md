@@ -59,5 +59,5 @@ Add these secrets:
 - Add more as needed: `FRIEND_ID_2`, etc.
 - Name can be whatever you like
 
-### 3. 💫 clone the repo 
+### 4. 💫 clone the repo 
 - adjust name of tokens in the python code and workflow file according to the secrets you have added
